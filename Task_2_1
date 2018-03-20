@@ -1,0 +1,235 @@
+// import libraries
+#include <string.h>
+#include <ctype.h>
+
+//PIN variables
+int led1 = D0; 
+int led2 = D7; 
+
+//Morse Code variables
+//If you want to change the morse code just simply change the word below
+char myStr[] = "Lachlan";
+size_t Len = strlen(myStr);
+int myStrLen = static_cast<int>(Len);
+char indStr;
+
+
+void setup() {
+
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+
+}
+
+
+void loop() {
+    
+    for (int i = 0; i < myStrLen; i++)
+	{
+		indStr = myStr[i];
+
+		alphabet();
+		
+		delay(2000);
+	}
+	
+	delay(5000);
+	
+}
+
+
+//Morse Code for each letter based on a short or long code
+void alphabet()
+{
+	if (tolower(indStr) == 'a')
+	{
+		blinkShort();
+		blinkLong();
+	}
+	else if (tolower(indStr) == 'b')
+	{
+		blinkLong();
+		blinkShort();
+		blinkShort();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 'c')
+	{
+		blinkLong();
+		blinkShort();
+		blinkLong();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 'd')
+	{
+		blinkLong();
+		blinkShort();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 'e')
+	{
+		blinkShort();
+	}
+	else if (tolower(indStr) == 'f')
+	{
+		blinkShort();
+		blinkShort();
+		blinkLong();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 'g')
+	{
+		blinkLong();
+		blinkLong();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 'h')
+	{
+		blinkShort();
+		blinkShort();
+		blinkShort();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 'i')
+	{
+		blinkShort();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 'j')
+	{
+		blinkShort();
+		blinkLong();
+		blinkLong();
+		blinkLong();
+		
+	}
+	else if (tolower(indStr) == 'k')
+	{
+		blinkLong();
+		blinkShort();
+		blinkLong();
+	}
+	else if (tolower(indStr) == 'l')
+	{
+		blinkShort();
+		blinkLong();
+		blinkShort();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 'm')
+	{
+		blinkLong();
+		blinkLong();
+	}
+	else if (tolower(indStr) == 'n')
+	{
+		blinkLong();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 'o')
+	{
+		blinkLong();
+		blinkLong();
+		blinkLong();
+	}
+	else if (tolower(indStr) == 'p')
+	{
+		blinkShort();
+		blinkLong();
+		blinkLong();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 'q')
+	{
+		blinkLong();
+		blinkLong();
+		blinkShort();
+		blinkLong();
+	}
+	else if (tolower(indStr) == 'r')
+	{
+		blinkShort();
+		blinkLong();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 's')
+	{
+		blinkShort();
+		blinkShort();
+		blinkShort();
+	}
+	else if (tolower(indStr) == 't')
+	{
+		blinkLong();
+	}
+	else if (tolower(indStr) == 'u')
+	{
+		blinkShort();
+		blinkShort();
+		blinkLong();
+	}
+	else if (tolower(indStr) == 'v')
+	{
+		blinkShort();
+		blinkShort();
+		blinkShort();
+		blinkLong();
+	}
+	else if (tolower(indStr) == 'w')
+	{
+		blinkShort();
+		blinkLong();
+		blinkLong();
+	}
+	else if (tolower(indStr) == 'x')
+	{
+		blinkLong();
+		blinkShort();
+		blinkShort();
+		blinkLong();
+	}
+	else if (tolower(indStr) == 'y')
+	{
+		blinkLong();
+		blinkShort();
+		blinkLong();
+		blinkLong();
+	}
+	else
+	{
+		blinkLong();
+		blinkLong();
+		blinkShort();
+		blinkShort();
+	}
+}
+
+//How to run a long in Morse Code
+void blinkLong() {
+    
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, HIGH);
+    
+  delay(1000);
+
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+  
+  delay(200);
+  
+}
+
+//How to run a short in Morse Code
+void blinkShort() {
+    
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, HIGH);
+    
+  delay(200);
+
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+  
+  delay(200);
+    
+}
